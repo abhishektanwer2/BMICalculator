@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#2196F3"
+        tools:context=".MainActivity">
+
+
+        <Button
+            android:id="@+id/btn_calculate"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="212dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/corner"
+            android:text="@string/calculateBMI"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_inches" />
+
+        <EditText
+            android:id="@+id/edit_weight"
+            style="@style/editTextStyle"
+            android:layout_width="270dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@android:color/background_light"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_weight" />
+
+        <EditText
+            android:id="@+id/edit_feet"
+            style="@style/editTextStyle"
+            android:layout_width="270dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@android:color/background_light"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_height" />
+
+        <EditText
+            android:id="@+id/edit_inches"
+            style="@style/editTextStyle"
+            android:layout_width="270dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@android:color/background_light"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_feet" />
+
+        <TextView
+            android:id="@+id/text_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/weight"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/text_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/height"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_weight" />
+
+        <TextView
+            android:id="@+id/text_lb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/lb"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/edit_weight"
+            app:layout_constraintTop_toBottomOf="@+id/text_weight" />
+
+        <TextView
+            android:id="@+id/text_feet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:shadowColor="@color/colorPrimary"
+            android:text="@string/feet"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/edit_feet"
+            app:layout_constraintTop_toBottomOf="@+id/text_height" />
+
+        <TextView
+            android:id="@+id/text_inches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:shadowColor="@color/colorPrimary"
+            android:text="@string/inches"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/edit_inches"
+            app:layout_constraintTop_toBottomOf="@+id/edit_feet" />
+
+        <TextView
+            android:id="@+id/text_resultBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:shadowColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_calculate" />
+
+        <TextView
+            android:id="@+id/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:shadowColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_resultBMI" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/sectionHeader"
+            android:layout_width="339dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#3F51B5"
+            android:text="@string/title_BMI"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
