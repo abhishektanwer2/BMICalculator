@@ -50,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
                     if (temp_feet == null || temp_feet.equals("")) {
                         edit_feet.setError("Please Insert Height in Feets");
                     }
+                    if (temp_weight == null || temp_weight.equals("") || temp_weight.equals(".")){
+                        edit_weight.setError("Please Insert Appropriate Weight");
+                    }
                     if (temp_inches == null || temp_inches.equals("") || Float.parseFloat(temp_inches) > 12) {
                         edit_inches.setError("Please Insert Appropriate Inches");
                         throw new CustomException();
                     }
-                    if (temp_weight == null || temp_weight.equals("") || temp_weight.equals(".")){
-                        edit_weight.setError("Please Insert Appropriate Weight");
-                    }
+
                     float temp_totalInches = Float.parseFloat(temp_inches) + (Float.parseFloat(temp_feet) * 12);
                     Float calculated_bmi = (Float.parseFloat(temp_weight) / (temp_totalInches * temp_totalInches)) * 703;
                     Toast toast = Toast.makeText(getApplicationContext(), "BMI Calculated", Toast.LENGTH_SHORT);
