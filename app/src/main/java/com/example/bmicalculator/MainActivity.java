@@ -1,4 +1,6 @@
-//Group no :21
+//Assignment name: ITIS/ITCS 5180 Mobile Application Development Homework 01
+//File Name:BMICalculator
+// Group no :21
 //Names: Nia Ibrahim
 //       Janhvi Chitnis
 //       Abhishek Tanwer
