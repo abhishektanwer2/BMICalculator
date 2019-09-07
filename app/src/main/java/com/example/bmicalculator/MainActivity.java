@@ -1,3 +1,8 @@
+//Group no :21
+//Names: Nia Ibrahim
+//       Janhvi Chitnis
+//       Abhishek Tanwer
+
 package com.example.bmicalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
