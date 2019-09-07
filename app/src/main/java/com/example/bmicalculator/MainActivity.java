@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText edit_weight;
@@ -48,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
                     if (temp_feet == null || temp_feet.equals("")) {
                         edit_feet.setError("Please Insert Height in Feets");
                     }
-                    if (temp_inches == null || temp_inches.equals("") || Float.parseFloat(temp_inches) > 11) {
+                    if (temp_inches == null || temp_inches.equals("") || Float.parseFloat(temp_inches) > 12) {
                         edit_inches.setError("Please Insert Appropriate Inches");
+                        throw new CustomException();
                     }
-                    if ((temp_weight == null || temp_weight.equals("") || temp_weight.equals(".") || Float.parseFloat(temp_weight)==0.0)) {
+                    if (temp_weight == null || temp_weight.equals("") || temp_weight.equals(".")){
                         edit_weight.setError("Please Insert Appropriate Weight");
                     }
                     float temp_totalInches = Float.parseFloat(temp_inches) + (Float.parseFloat(temp_feet) * 12);
@@ -59,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "BMI Calculated", Toast.LENGTH_SHORT);
                     toast.show();
 
-                    text_resultBMI.setText("Your BMI: " + calculated_bmi);
+                    DecimalFormat f = new DecimalFormat("##.00");
+                    text_resultBMI.setText("Your BMI: " + f.format(calculated_bmi));
                     if (calculated_bmi <= 18.5) {
                         text_result.setText("You are Underweight");
                     } else if (calculated_bmi > 18.5 && calculated_bmi <= 24.9) {
@@ -70,7 +74,14 @@ public class MainActivity extends AppCompatActivity {
                         text_result.setText("You are Obese");
                     }
 
-                } catch (Exception ex) {
+                }
+                catch(CustomException ex) {
+                    Toast toast = Toast.makeText(getApplicationContext(), ex.getMessage("Invalid Input"), Toast.LENGTH_SHORT);
+                    toast.show();
+                    text_result.setText("");
+                    text_resultBMI.setText("");
+                }
+                catch (Exception ex) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
                     toast.show();
                     text_result.setText("");
