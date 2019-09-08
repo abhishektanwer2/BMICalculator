@@ -66,20 +66,25 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     float temp_totalInches = Float.parseFloat(temp_inches) + (Float.parseFloat(temp_feet) * 12);
-                    Float calculated_bmi = (Float.parseFloat(temp_weight) / (temp_totalInches * temp_totalInches)) * 703;
-                    Toast toast = Toast.makeText(getApplicationContext(), "BMI Calculated", Toast.LENGTH_SHORT);
-                    toast.show();
+                    if(temp_totalInches==0.00){
+                        throw new CustomException();
+                    }
+                    else {
+                        Float calculated_bmi = (Float.parseFloat(temp_weight) / (temp_totalInches * temp_totalInches)) * 703;
+                        Toast toast = Toast.makeText(getApplicationContext(), "BMI Calculated", Toast.LENGTH_SHORT);
+                        toast.show();
 
-                    DecimalFormat f = new DecimalFormat("##.00");
-                    text_resultBMI.setText("Your BMI: " + f.format(calculated_bmi));
-                    if (calculated_bmi <= 18.5) {
-                        text_result.setText("You are Underweight");
-                    } else if (calculated_bmi > 18.5 && calculated_bmi <= 24.9) {
-                        text_result.setText("You are Normal Weight");
-                    } else if (calculated_bmi > 24.9 && calculated_bmi <= 29.9) {
-                        text_result.setText("You are Over Weight");
-                    } else if (calculated_bmi >= 30) {
-                        text_result.setText("You are Obese");
+                        DecimalFormat f = new DecimalFormat("##.00");
+                        text_resultBMI.setText("Your BMI: " + f.format(calculated_bmi));
+                        if (calculated_bmi <= 18.5) {
+                            text_result.setText("You are Underweight");
+                        } else if (calculated_bmi > 18.5 && calculated_bmi <= 24.9) {
+                            text_result.setText("You are Normal Weight");
+                        } else if (calculated_bmi > 24.9 && calculated_bmi <= 29.9) {
+                            text_result.setText("You are Over Weight");
+                        } else if (calculated_bmi >= 30) {
+                            text_result.setText("You are Obese");
+                        }
                     }
 
                 }
